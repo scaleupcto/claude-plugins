@@ -5,7 +5,9 @@ Scale Up CTO's Claude Code plugin marketplace, `scaleupcto`. It holds one plugin
 and `claude plugin validate --strict plugins/ctotools`.
 
 - **GitHub**: [scaleupcto/claude-plugins](https://github.com/scaleupcto/claude-plugins) (public)
-- **Vercel**: project `claude-skills` in the `scale-up-cto` team
+- **Vercel**: project `claude-skills` in the `scale-up-cto` team. It serves the static docs
+  and marketing site in `site/` (configured in `vercel.json`, no build step) at
+  [tools.scaleupcto.com](https://tools.scaleupcto.com).
 
 ## How we work
 
