@@ -7,7 +7,7 @@ and `claude plugin validate --strict plugins/ctotools`.
 - **GitHub**: [scaleupcto/claude-plugins](https://github.com/scaleupcto/claude-plugins) (public)
 - **Vercel**: project `claude-skills` in the `scale-up-cto` team. It serves the static docs
   and marketing site in `site/` (configured in `vercel.json`, no build step) at
-  [plugins.scaleupcto.com](https://plugins.scaleupcto.com).
+  [tools.scaleupcto.com](https://tools.scaleupcto.com).
 
 ## How we work
 

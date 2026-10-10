@@ -2,7 +2,7 @@
 
 A [Claude Code](https://claude.com/claude-code) plugin marketplace from
 [ScaleUpCTO](https://scaleupcto.com), called `scaleupcto`. Docs and the explainer video are at
-[plugins.scaleupcto.com](https://plugins.scaleupcto.com).
+[tools.scaleupcto.com](https://tools.scaleupcto.com).
 
 ## Install
 
