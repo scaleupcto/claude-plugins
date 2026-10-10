@@ -23,7 +23,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 
 body {
   margin: 0;
@@ -72,7 +72,11 @@ h1, h2, h3, p { margin: 0; }
 .btn--secondary:hover { background: var(--secondary-hover); color: var(--ink); }
 
 /* Nav */
-.nav { border-bottom: 1px solid var(--cloud); background: var(--paper); }
+.nav {
+  position: sticky; top: 0; z-index: 5;
+  border-bottom: 1px solid var(--cloud); background: rgb(255 255 255 / 0.92);
+  -webkit-backdrop-filter: saturate(1.4) blur(8px); backdrop-filter: saturate(1.4) blur(8px);
+}
 .nav__bar { min-height: 68px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
 .nav__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .nav__brand img { height: 28px; width: auto; display: block; }
