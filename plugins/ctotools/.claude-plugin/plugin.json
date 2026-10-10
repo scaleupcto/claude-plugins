@@ -1,0 +1,11 @@
+{
+  "name": "ctotools",
+  "version": "1.0.0",
+  "description": "CTO tools for Claude Code, from ScaleUpCTO",
+  "author": {
+    "name": "Chris Clarke"
+  },
+  "homepage": "https://github.com/scaleupcto/claude-plugins",
+  "repository": "https://github.com/scaleupcto/claude-plugins",
+  "license": "MIT"
+}
