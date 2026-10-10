@@ -18,12 +18,17 @@ changes, pushes them and replies on each thread.
 
 ### Requirements
 
-- The [Vercel CLI](https://vercel.com/docs/cli) with the `comments` command, logged in
-  (`npm i -g vercel@latest`, then `vercel login`).
+- The [Vercel CLI](https://vercel.com/docs/cli) with the `comments` command
+  (`npm i -g vercel@latest`), logged in with `vercel login` as a member of the Vercel team
+  that owns the project.
 - The [GitHub CLI](https://cli.github.com), logged in (`gh auth login`).
 - [jq](https://jqlang.org), for watch mode.
 - A Vercel project connected to a GitHub repo, with the Vercel Toolbar enabled on preview
   deployments.
+
+Recommended: run `vercel link` once in the project's main checkout. The skill then finds the
+Vercel project straight away. Without it, the skill works the project out from the PR's
+Vercel check, or asks you.
 
 The skill checks these before it starts and tells you what's missing.
 
