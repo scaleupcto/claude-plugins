@@ -1,8 +1,10 @@
-# claude-skills
+# claude-plugins
 
-Scale Up CTO's Claude skills for working with Vercel, GitHub and more.
+Scale Up CTO's Claude Code plugin marketplace, `scaleupcto`. It holds one plugin,
+`ctotools`, in `plugins/ctotools/`. Validate changes with `claude plugin validate --strict .`
+and `claude plugin validate --strict plugins/ctotools`.
 
-- **GitHub**: [scaleupcto/claude-skills](https://github.com/scaleupcto/claude-skills) (private)
+- **GitHub**: [scaleupcto/claude-plugins](https://github.com/scaleupcto/claude-plugins) (public)
 - **Vercel**: project `claude-skills` in the `scale-up-cto` team
 
 ## How we work
