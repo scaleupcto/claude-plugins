@@ -116,7 +116,8 @@
             <span class="num num--outline">3</span>
             <div>
               <h3>Run a skill on a PR</h3>
-              <div class="code"><pre><code>/ctotools:vercel-feedback 42</code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code"><pre><code>/ctotools:vercel-feedback</code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="note">Run it from the PR's branch or worktree, or name the PR: <code>/ctotools:vercel-feedback 42</code>. See <a href="#skills">Skills</a> for every argument.</p>
             </div>
           </li>
         </ol>
@@ -141,17 +142,31 @@
         <div class="skill__body">
           <div class="skill__usage">
             <p class="label">Usage</p>
+            <div class="code code--light"><pre><code>/ctotools:vercel-feedback [PR number | branch | preview URL] [watch | resolve | resolve-all]</code></pre></div>
+            <p class="hint">Both arguments are optional.</p>
             <div class="table">
               <table>
-                <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+                <thead><tr><th scope="col">Target</th><th scope="col">Which PR it works on</th></tr></thead>
                 <tbody>
-                  <tr><td><code>vercel-feedback 42</code></td><td>One pass over the unresolved threads. Takes a PR number, branch or preview URL, or nothing from inside the PR's worktree.</td></tr>
-                  <tr><td><code>vercel-feedback 42 watch</code></td><td>Keeps polling and handles new comments as they arrive, so you can comment live on the preview.</td></tr>
-                  <tr><td><code>vercel-feedback 42 resolve</code></td><td>Resolves the threads it has addressed, one by one.</td></tr>
-                  <tr><td><code>vercel-feedback 42 resolve-all</code></td><td>Resolves every thread it has addressed in one go.</td></tr>
+                  <tr><td><em>none</em></td><td>The PR for the branch you're on. Run it from the PR's worktree; if the branch has no PR, it lists the open ones and asks.</td></tr>
+                  <tr><td><code>42</code></td><td>A PR number.</td></tr>
+                  <tr><td><code>my-feature</code></td><td>The branch the PR was opened from.</td></tr>
+                  <tr><td><code>https://…vercel.app</code></td><td>A preview URL, either the branch alias or a single deployment.</td></tr>
                 </tbody>
               </table>
             </div>
+            <div class="table">
+              <table>
+                <thead><tr><th scope="col">Mode</th><th scope="col">What it does</th></tr></thead>
+                <tbody>
+                  <tr><td><em>none</em></td><td>One pass over the unresolved threads: make the changes, push and reply on each.</td></tr>
+                  <tr><td><code>watch</code></td><td>After the first pass, keeps polling and handles new comments as they arrive, so you can comment live on the preview.</td></tr>
+                  <tr><td><code>resolve</code></td><td>Changes nothing. Resolves the threads it has addressed, one by one.</td></tr>
+                  <tr><td><code>resolve-all</code></td><td>Changes nothing. Resolves every thread it has addressed in one go.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="hint">For example <code>/ctotools:vercel-feedback 42 watch</code>, or <code>/ctotools:vercel-feedback resolve-all</code> from the PR's worktree.</p>
           </div>
           <div class="skill__needs">
             <p class="label">You'll need</p>
