@@ -1,0 +1,24 @@
+# claude-skills
+
+Scale Up CTO's Claude skills for working with Vercel, GitHub and more.
+
+- **GitHub**: [scaleupcto/claude-skills](https://github.com/scaleupcto/claude-skills) (private)
+- **Vercel**: project `claude-skills` in the `scale-up-cto` team
+
+## How we work
+
+- **Worktrees**: all work is done in git worktrees under `.claude/worktrees/<short-name>`,
+  never directly in the main checkout, which stays on `main`.
+- **Branches**: prefixed with `scaleupcto/`, e.g. `scaleupcto/some-feature`.
+- **Commits**: semantic (Conventional Commits) messages, `type(scope): summary`, with
+  type one of `feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `ci`, `build`, `perf`
+  or `style`.
+- **Pull requests**: each piece of work goes up as a PR to `main`.
+- **Merging**: when the user asks you to merge a PR, run these from the main checkout:
+  1. `gh pr merge <number> --squash`. Don't pass `--delete-branch`: it fails while a
+     worktree still has the branch checked out.
+  2. `git worktree remove .claude/worktrees/<short-name>`
+  3. `git branch -D scaleupcto/<short-name>`
+  4. `git push origin --delete scaleupcto/<short-name>`
+  5. Leave the user on a freshly pulled `main` in the main checkout:
+     `git checkout main && git pull --prune`
