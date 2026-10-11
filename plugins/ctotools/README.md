@@ -2,19 +2,63 @@
 
 CTO tools for Claude Code, from [ScaleUpCTO](https://scaleupcto.com).
 
+## Install
+
+```
+/plugin marketplace add scaleupcto/claude-plugins
+/plugin install ctotools@scaleupcto
+```
+
+| Skill | What it does |
+|---|---|
+| [new-project](#new-project) | Bootstraps a new project from an empty folder: GitHub repo, optional Vercel project, first PR. |
+| [vercel-feedback](#vercel-feedback) | Turns Vercel Toolbar comments on a PR's preview into commits, pushes and thread replies. |
+
+## new-project
+
+Run it in an empty folder with a one-line description, and Claude Code sets the project up
+the way we work: a private GitHub repo with an empty `main`, a first branch in a worktree,
+a README.md and a CLAUDE.md with the working conventions, and a pull request. It also
+creates a matching Vercel project and connects it to the repo, unless you pass `no-vercel`.
+
+[Watch the demo on YouTube](https://youtu.be/jFrqu8L9sh4)
+
+### Requirements
+
+- The [GitHub CLI](https://cli.github.com), logged in (`gh auth login`).
+- Unless you pass `no-vercel`, the [Vercel CLI](https://vercel.com/docs/cli) (`npm i -g vercel@latest`),
+  logged in with `vercel login`.
+
+### Usage
+
+```
+/ctotools:new-project <description> [no-vercel]
+```
+
+| Example | What it does |
+|---|---|
+| `/ctotools:new-project Coffee subscription API` | Creates the GitHub repo and a connected Vercel project. |
+| `/ctotools:new-project Coffee subscription API no-vercel` | GitHub only. |
+
+### What it does
+
+- Names the repo after the folder and picks the GitHub org from the parent folder's name,
+  asking if it isn't clear. With Vercel, it picks the matching Vercel team.
+- Creates the private repo with an empty `main`, then a first branch,
+  `<your GitHub username>/initial-docs`, in a worktree under `.claude/worktrees/`.
+- With Vercel, creates the project, links it and connects it to the repo. If the Vercel
+  GitHub app can't see the new repo, it gives you the link to grant access.
+- Writes README.md, CLAUDE.md and .gitignore, then raises the first PR.
+
+The CLAUDE.md it writes tells Claude how to work in the project from then on: worktrees,
+branch names, Conventional Commits, a PR for every change, and how to merge.
+
 ## vercel-feedback
 
 Leave comments on a Vercel preview with the Vercel Toolbar, and Claude Code makes the
 changes, pushes them and replies on each thread.
 
 [Watch the demo on YouTube](https://youtu.be/KtjJzvCc1UY)
-
-### Install
-
-```
-/plugin marketplace add scaleupcto/claude-plugins
-/plugin install ctotools@scaleupcto
-```
 
 ### Requirements
 

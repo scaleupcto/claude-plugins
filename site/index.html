@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ctotools · Claude Code plugin from ScaleUpCTO</title>
-  <meta name="description" content="Comment on your Vercel preview. Claude ships the fix. ctotools is a Claude Code plugin from ScaleUpCTO that turns Vercel Toolbar comments into commits, pushes and thread replies.">
+  <title>ctotools · Claude Code skills from ScaleUpCTO</title>
+  <meta name="description" content="ctotools is a Claude Code plugin from ScaleUpCTO. new-project takes an empty folder to a GitHub repo, an optional Vercel project and a first PR. vercel-feedback turns Vercel Toolbar comments into commits, pushes and thread replies.">
   <link rel="canonical" href="https://tools.scaleupcto.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tools.scaleupcto.com/">
-  <meta property="og:title" content="ctotools · Claude Code plugin from ScaleUpCTO">
-  <meta property="og:description" content="Comment on your Vercel preview. Claude ships the fix.">
+  <meta property="og:title" content="ctotools · Claude Code skills from ScaleUpCTO">
+  <meta property="og:description" content="Start projects the way you work, and turn preview comments into shipped fixes.">
   <meta property="og:image" content="https://img.youtube.com/vi/xay-tSqlSrI/maxresdefault.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0d1f35">
@@ -34,9 +34,9 @@
         <span class="nav__product">ctotools</span>
       </a>
       <div class="nav__links">
-        <a href="#video">Video</a>
+        <a href="#new-project">new-project</a>
+        <a href="#vercel-feedback">vercel-feedback</a>
         <a href="#install">Install</a>
-        <a href="#skills">Skills</a>
         <a class="btn btn--secondary btn--sm" href="https://github.com/scaleupcto/claude-plugins">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
           GitHub
@@ -46,11 +46,11 @@
   </header>
 
   <main id="main">
-    <section class="wrap hero" id="video">
+    <section class="wrap hero">
       <div class="hero__copy">
-        <span class="badge"><span class="badge__dot"></span>Claude Code plugin · v1.0</span>
-        <h1>Comment on your Vercel preview. <strong>Claude ships the fix.</strong></h1>
-        <p class="lead">ctotools is a set of Claude Code skills from ScaleUpCTO. Its first skill, vercel-feedback, reads your reviewers' Vercel Toolbar comments, makes the changes, pushes, and replies on each thread.</p>
+        <span class="badge"><span class="badge__dot"></span>Claude Code plugin · v1.1</span>
+        <h1>CTO tooling for <strong>Claude Code.</strong></h1>
+        <p class="lead">ctotools is a set of Claude Code skills from ScaleUpCTO. Start every project the way your team works, then turn reviewers' comments on the preview into shipped fixes.</p>
         <div class="actions">
           <a class="btn btn--primary btn--lg" href="#install">
             Install the plugin
@@ -59,81 +59,146 @@
           <a class="btn btn--secondary btn--lg" href="https://github.com/scaleupcto/claude-plugins">View on GitHub</a>
         </div>
       </div>
-      <figure class="hero__video">
-        <div class="video">
-          <iframe src="https://www.youtube-nocookie.com/embed/xay-tSqlSrI?rel=0" title="Comment on your Vercel preview. Claude ships the fix." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <figcaption>Watch the explainer · <a href="https://youtu.be/xay-tSqlSrI">open on YouTube</a></figcaption>
-      </figure>
+      <nav class="hero__skills" id="skills" aria-label="Skills">
+        <p class="label">Skills in ctotools</p>
+        <a class="tile" href="#new-project">
+          <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10v6"/><path d="M9 13h6"/><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span>
+          <span class="tile__body">
+            <span class="tile__name">new-project <span class="tile__tag">New</span></span>
+            <span class="tile__desc">An empty folder to a GitHub repo, an optional Vercel project and a first PR.</span>
+          </span>
+          <svg class="icon tile__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <a class="tile" href="#vercel-feedback">
+          <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+          <span class="tile__body">
+            <span class="tile__name">vercel-feedback</span>
+            <span class="tile__desc">Vercel Toolbar comments on a preview become commits, pushes and thread replies.</span>
+          </span>
+          <svg class="icon tile__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <p class="hint">More CTO tooling on the way.</p>
+      </nav>
     </section>
 
-    <section class="band band--fog">
+    <section class="band band--fog" id="new-project">
       <div class="wrap section">
-        <div class="section__head">
-          <p class="eyebrow">How it works</p>
-          <h2>Review the preview, not the diff.</h2>
+        <div class="feature">
+          <div class="feature__copy">
+            <p class="eyebrow">Skill · new-project</p>
+            <h2>Empty folder to first PR. <strong>One command.</strong></h2>
+            <p class="lead">Describe the project and Claude sets it up the way you work: a private GitHub repo, a first branch in a worktree, a README.md and a CLAUDE.md with your conventions, a Vercel project, and a pull request.</p>
+            <code class="chip chip--start">/ctotools:new-project</code>
+          </div>
+          <figure class="feature__video">
+            <div class="video">
+              <iframe src="https://www.youtube-nocookie.com/embed/jFrqu8L9sh4?rel=0" title="Empty folder to first PR. One command." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Watch the explainer · <a href="https://youtu.be/jFrqu8L9sh4">open on YouTube</a></figcaption>
+          </figure>
         </div>
+
         <ol class="steps">
           <li class="card">
             <span class="num num--fill">1</span>
-            <h3>Reviewers comment</h3>
-            <p>Your team leaves comments on the PR's preview with the Vercel Toolbar, pinned to the thing they want changed.</p>
+            <h3>Describe the project</h3>
+            <p>Run it in an empty folder. It names the repo after the folder and picks the GitHub org from the folder above, asking if that isn't clear.</p>
           </li>
           <li class="card">
             <span class="num num--fill">2</span>
-            <h3>Claude makes the change</h3>
-            <p>It reads each unresolved thread, edits the code in that branch's worktree, commits and pushes. Vercel builds a new preview.</p>
+            <h3>Repo and Vercel project</h3>
+            <p>It creates a private repo with an empty main, then a Vercel project in the matching team, connected to the repo. Pass no-vercel to skip Vercel.</p>
           </li>
           <li class="card">
             <span class="num num--fill">3</span>
-            <h3>It replies on the thread</h3>
-            <p>Each thread gets a reply saying what changed, so the reviewer can check the new preview and resolve it.</p>
+            <h3>The first PR sets the rules</h3>
+            <p>From a worktree, it writes README.md, CLAUDE.md and .gitignore and opens a PR. CLAUDE.md tells Claude how to work in the project from then on.</p>
           </li>
         </ol>
+
+        <article class="skill">
+          <header class="skill__head">
+            <div>
+              <h3>new-project</h3>
+              <p>Bootstraps a new project from an empty folder.</p>
+            </div>
+            <code class="chip">/ctotools:new-project</code>
+          </header>
+          <div class="skill__body">
+            <div class="skill__usage">
+              <p class="label">Usage</p>
+              <div class="code code--light"><pre><code>/ctotools:new-project &lt;description&gt; [no-vercel]</code></pre></div>
+              <p class="hint">The description is required. Add <code>no-vercel</code> at the end to skip Vercel.</p>
+              <div class="table">
+                <table>
+                  <thead><tr><th scope="col">Option</th><th scope="col">What it does</th></tr></thead>
+                  <tbody>
+                    <tr><td><em>none</em></td><td>Also creates a Vercel project in the team that matches the GitHub org, links it and connects it to the repo.</td></tr>
+                    <tr><td><code>no-vercel</code></td><td>GitHub only. The report says how to add Vercel later.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table">
+                <table>
+                  <thead><tr><th scope="col">Rule</th><th scope="col">What it says</th></tr></thead>
+                  <tbody>
+                    <tr><td>Worktrees</td><td>All work happens in git worktrees under <code>.claude/worktrees/</code>. The main checkout stays on <code>main</code>.</td></tr>
+                    <tr><td>Branches</td><td>Prefixed with your GitHub username, like <code>chris/some-feature</code>.</td></tr>
+                    <tr><td>Commits</td><td>Conventional Commits: <code>type(scope): summary</code>.</td></tr>
+                    <tr><td>Pull requests</td><td>Each piece of work goes up as a PR to <code>main</code>.</td></tr>
+                    <tr><td>Merging</td><td>Squash merge, then remove the worktree and delete the branch locally and on GitHub.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hint">For example <code>/ctotools:new-project Subscription billing API for Larkspur Coffee</code>, or add <code>no-vercel</code> for GitHub only.</p>
+            </div>
+            <div class="skill__needs">
+              <p class="label">You'll need</p>
+              <ul class="checks">
+                <li>The GitHub CLI, logged in: <code>gh auth login</code></li>
+                <li>An empty folder. If its parent folder is named after the GitHub org, it picks the org for you</li>
+                <li>Unless you pass <code>no-vercel</code>, the Vercel CLI, logged in: <code>npm i -g vercel@latest</code></li>
+                <li>For Vercel, the Vercel GitHub app with access to the new repo. If it can't see it, the skill gives you the link to grant access</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="band band--ink" id="install">
-      <div class="wrap section install">
-        <div class="install__intro">
-          <p class="eyebrow eyebrow--sun">Install</p>
-          <h2>Two commands in Claude Code.</h2>
-          <p class="lead">ctotools ships from the scaleupcto plugin marketplace. Add the marketplace once, then install the plugin. Its skills are then available in every project.</p>
+    <section class="wrap section" id="vercel-feedback">
+      <div class="feature">
+        <div class="feature__copy">
+          <p class="eyebrow">Skill · vercel-feedback</p>
+          <h2>Comment on your Vercel preview. <strong>Claude ships the fix.</strong></h2>
+          <p class="lead">It reads your reviewers' Vercel Toolbar comments, makes the changes, pushes, and replies on each thread.</p>
+          <code class="chip chip--start">/ctotools:vercel-feedback</code>
         </div>
-        <ol class="install__steps">
-          <li>
-            <span class="num num--outline">1</span>
-            <div>
-              <h3>Add the marketplace</h3>
-              <div class="code"><pre><code>/plugin marketplace add scaleupcto/claude-plugins</code></pre><button class="copy" type="button">Copy</button></div>
-            </div>
-          </li>
-          <li>
-            <span class="num num--outline">2</span>
-            <div>
-              <h3>Install the plugin</h3>
-              <div class="code"><pre><code>/plugin install ctotools@scaleupcto</code></pre><button class="copy" type="button">Copy</button></div>
-              <p class="note">On Claude Code 2.1.275 or later, one command does both: <code>/plugin install ctotools --marketplace scaleupcto/claude-plugins</code></p>
-            </div>
-          </li>
-          <li>
-            <span class="num num--outline">3</span>
-            <div>
-              <h3>Run a skill on a PR</h3>
-              <div class="code"><pre><code>/ctotools:vercel-feedback</code></pre><button class="copy" type="button">Copy</button></div>
-              <p class="note">Run it from the PR's branch or worktree, or name the PR: <code>/ctotools:vercel-feedback 42</code>. See <a href="#skills">Skills</a> for every argument.</p>
-            </div>
-          </li>
-        </ol>
+        <figure class="feature__video">
+          <div class="video">
+            <iframe src="https://www.youtube-nocookie.com/embed/xay-tSqlSrI?rel=0" title="Comment on your Vercel preview. Claude ships the fix." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <figcaption>Watch the explainer · <a href="https://youtu.be/xay-tSqlSrI">open on YouTube</a></figcaption>
+        </figure>
       </div>
-    </section>
 
-    <section class="wrap section" id="skills">
-      <div class="section__head">
-        <p class="eyebrow">Skills</p>
-        <h2>What's in ctotools</h2>
-        <p class="lead">One skill today, with more CTO tooling on the way.</p>
-      </div>
+      <ol class="steps">
+        <li class="card">
+          <span class="num num--fill">1</span>
+          <h3>Reviewers comment</h3>
+          <p>Your team leaves comments on the PR's preview with the Vercel Toolbar, pinned to the thing they want changed.</p>
+        </li>
+        <li class="card">
+          <span class="num num--fill">2</span>
+          <h3>Claude makes the change</h3>
+          <p>It reads each unresolved thread, edits the code in that branch's worktree, commits and pushes. Vercel builds a new preview.</p>
+        </li>
+        <li class="card">
+          <span class="num num--fill">3</span>
+          <h3>It replies on the thread</h3>
+          <p>Each thread gets a reply saying what changed, so the reviewer can check the new preview and resolve it.</p>
+        </li>
+      </ol>
 
       <article class="skill">
         <header class="skill__head">
@@ -193,6 +258,42 @@
       </aside>
     </section>
 
+    <section class="band band--ink" id="install">
+      <div class="wrap section install">
+        <div class="install__intro">
+          <p class="eyebrow eyebrow--sun">Install</p>
+          <h2>Two commands in Claude Code.</h2>
+          <p class="lead">ctotools ships from the scaleupcto plugin marketplace. Add the marketplace once, then install the plugin. Every skill is then available in every project.</p>
+        </div>
+        <ol class="install__steps">
+          <li>
+            <span class="num num--outline">1</span>
+            <div>
+              <h3>Add the marketplace</h3>
+              <div class="code"><pre><code>/plugin marketplace add scaleupcto/claude-plugins</code></pre><button class="copy" type="button">Copy</button></div>
+            </div>
+          </li>
+          <li>
+            <span class="num num--outline">2</span>
+            <div>
+              <h3>Install the plugin</h3>
+              <div class="code"><pre><code>/plugin install ctotools@scaleupcto</code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="note">On Claude Code 2.1.275 or later, one command does both: <code>/plugin install ctotools --marketplace scaleupcto/claude-plugins</code></p>
+            </div>
+          </li>
+          <li>
+            <span class="num num--outline">3</span>
+            <div>
+              <h3>Run a skill</h3>
+              <div class="code"><pre><code>/ctotools:new-project &lt;description&gt;</code></pre><button class="copy" type="button">Copy</button></div>
+              <div class="code"><pre><code>/ctotools:vercel-feedback</code></pre><button class="copy" type="button">Copy</button></div>
+              <p class="note">Run new-project in an empty folder, and vercel-feedback from a PR's branch or worktree. See <a href="#new-project">new-project</a> and <a href="#vercel-feedback">vercel-feedback</a> for every argument.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <section class="band band--sun">
       <div class="wrap cta">
         <div>
@@ -212,7 +313,8 @@
       <a href="https://scaleupcto.com"><img src="/assets/lockup-reversed-on-ink.svg" alt="ScaleUpCTO" width="160" height="28"></a>
       <nav class="footer__links" aria-label="Footer">
         <a href="https://github.com/scaleupcto/claude-plugins">GitHub</a>
-        <a href="https://youtu.be/xay-tSqlSrI">Explainer video</a>
+        <a href="https://youtu.be/jFrqu8L9sh4">new-project video</a>
+        <a href="https://youtu.be/xay-tSqlSrI">vercel-feedback video</a>
         <a href="https://github.com/scaleupcto/claude-plugins/blob/main/LICENSE">MIT licence</a>
         <a href="https://scaleupcto.com">scaleupcto.com</a>
       </nav>

@@ -9,7 +9,7 @@
     {
       "name": "ctotools",
       "source": "./plugins/ctotools",
-      "description": "ScaleUpCTO tools for Claude Code. vercel-feedback turns Vercel Toolbar comments into commits, pushes and thread replies."
+      "description": "ScaleUpCTO tools for Claude Code. new-project bootstraps a GitHub repo, an optional Vercel project and a first PR. vercel-feedback turns Vercel Toolbar comments into commits, pushes and thread replies."
     }
   ]
 }
