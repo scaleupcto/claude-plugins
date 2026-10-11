@@ -87,7 +87,7 @@
           <div class="feature__copy">
             <p class="eyebrow">Skill · new-project</p>
             <h2>Empty folder to first PR. <strong>One command.</strong></h2>
-            <p class="lead">Describe the project and Claude sets it up the way you work: a private GitHub repo, a first branch in a worktree, a README.md and a CLAUDE.md with your conventions, and a pull request. Vercel is optional.</p>
+            <p class="lead">Describe the project and Claude sets it up the way you work: a private GitHub repo, a first branch in a worktree, a README.md and a CLAUDE.md with your conventions, a Vercel project, and a pull request.</p>
             <code class="chip chip--start">/ctotools:new-project</code>
           </div>
           <figure class="feature__video">
@@ -107,8 +107,8 @@
           </li>
           <li class="card">
             <span class="num num--fill">2</span>
-            <h3>Repo, and Vercel if you want it</h3>
-            <p>It creates a private repo with an empty main. Say yes to Vercel and it also creates a project in the matching team and connects it to the repo.</p>
+            <h3>Repo and Vercel project</h3>
+            <p>It creates a private repo with an empty main, then a Vercel project in the matching team, connected to the repo. Pass no-vercel to skip Vercel.</p>
           </li>
           <li class="card">
             <span class="num num--fill">3</span>
@@ -128,14 +128,13 @@
           <div class="skill__body">
             <div class="skill__usage">
               <p class="label">Usage</p>
-              <div class="code code--light"><pre><code>/ctotools:new-project &lt;description&gt; [vercel | no-vercel]</code></pre></div>
-              <p class="hint">The description is required. Without <code>vercel</code> or <code>no-vercel</code> at the end, it asks.</p>
+              <div class="code code--light"><pre><code>/ctotools:new-project &lt;description&gt; [no-vercel]</code></pre></div>
+              <p class="hint">The description is required. Add <code>no-vercel</code> at the end to skip Vercel.</p>
               <div class="table">
                 <table>
-                  <thead><tr><th scope="col">Vercel</th><th scope="col">What it does</th></tr></thead>
+                  <thead><tr><th scope="col">Option</th><th scope="col">What it does</th></tr></thead>
                   <tbody>
-                    <tr><td><em>none</em></td><td>Asks whether to create a Vercel project too.</td></tr>
-                    <tr><td><code>vercel</code></td><td>Creates a Vercel project in the team that matches the GitHub org, links it and connects it to the repo, without asking.</td></tr>
+                    <tr><td><em>none</em></td><td>Also creates a Vercel project in the team that matches the GitHub org, links it and connects it to the repo.</td></tr>
                     <tr><td><code>no-vercel</code></td><td>GitHub only. The report says how to add Vercel later.</td></tr>
                   </tbody>
                 </table>
@@ -152,14 +151,14 @@
                   </tbody>
                 </table>
               </div>
-              <p class="hint">For example <code>/ctotools:new-project Subscription billing API for Larkspur Coffee vercel</code>.</p>
+              <p class="hint">For example <code>/ctotools:new-project Subscription billing API for Larkspur Coffee</code>, or add <code>no-vercel</code> for GitHub only.</p>
             </div>
             <div class="skill__needs">
               <p class="label">You'll need</p>
               <ul class="checks">
                 <li>The GitHub CLI, logged in: <code>gh auth login</code></li>
                 <li>An empty folder. If its parent folder is named after the GitHub org, it picks the org for you</li>
-                <li>For Vercel, the Vercel CLI, logged in: <code>npm i -g vercel@latest</code></li>
+                <li>Unless you pass <code>no-vercel</code>, the Vercel CLI, logged in: <code>npm i -g vercel@latest</code></li>
                 <li>For Vercel, the Vercel GitHub app with access to the new repo. If it can't see it, the skill gives you the link to grant access</li>
               </ul>
             </div>

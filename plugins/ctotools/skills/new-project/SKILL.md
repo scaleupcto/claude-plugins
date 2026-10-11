@@ -1,7 +1,7 @@
 ---
 name: new-project
-description: Bootstrap a new project in the current empty directory. Creates a private GitHub repo in the right org, optionally a matching Vercel project connected to it, and a first PR from a worktree with a README.md and a CLAUDE.md that set out how we work. Use when the user runs /ctotools:new-project or asks to set up, initialise or bootstrap a new project or repo.
-argument-hint: "<description of the project> [vercel | no-vercel]"
+description: Bootstrap a new project in the current empty directory. Creates a private GitHub repo in the right org, a matching Vercel project connected to it (skip it with no-vercel), and a first PR from a worktree with a README.md and a CLAUDE.md that set out how we work. Use when the user runs /ctotools:new-project or asks to set up, initialise or bootstrap a new project or repo.
+argument-hint: "<description of the project> [no-vercel]"
 ---
 
 # New project
@@ -11,16 +11,9 @@ description. If it's empty, ask the user what the project does before you start.
 
 ## Vercel is optional
 
-Work out whether to create a Vercel project before doing anything else:
-
-- The last word of `$ARGUMENTS` is `no-vercel`: skip Vercel.
-- The last word is `vercel`: create the Vercel project.
-- Either way, that last word isn't part of the description. A description that merely
-  mentions Vercel ("a dashboard for our Vercel usage") doesn't count.
-- Neither: ask with AskUserQuestion whether to create a Vercel project too, with
-  "Create a Vercel project" and "GitHub only" as the options. If the session isn't
-  interactive, don't create one, and say in the report how to add it later
-  (step 4's commands).
+By default the skill also creates a Vercel project. If the last word of `$ARGUMENTS` is
+`no-vercel`, skip Vercel, and leave that word out of the description. A description that
+merely mentions Vercel ("a dashboard for our Vercel usage") doesn't count.
 
 Everything below marked **(Vercel)** applies only when you're creating the Vercel project.
 

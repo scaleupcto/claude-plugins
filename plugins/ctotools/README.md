@@ -18,25 +18,24 @@ CTO tools for Claude Code, from [ScaleUpCTO](https://scaleupcto.com).
 
 Run it in an empty folder with a one-line description, and Claude Code sets the project up
 the way we work: a private GitHub repo with an empty `main`, a first branch in a worktree,
-a README.md and a CLAUDE.md with the working conventions, and a pull request. Vercel is
-optional: it can also create a matching Vercel project and connect it to the repo.
+a README.md and a CLAUDE.md with the working conventions, and a pull request. It also
+creates a matching Vercel project and connects it to the repo, unless you pass `no-vercel`.
 
 ### Requirements
 
 - The [GitHub CLI](https://cli.github.com), logged in (`gh auth login`).
-- For Vercel, the [Vercel CLI](https://vercel.com/docs/cli) (`npm i -g vercel@latest`),
+- Unless you pass `no-vercel`, the [Vercel CLI](https://vercel.com/docs/cli) (`npm i -g vercel@latest`),
   logged in with `vercel login`.
 
 ### Usage
 
 ```
-/ctotools:new-project <description> [vercel | no-vercel]
+/ctotools:new-project <description> [no-vercel]
 ```
 
 | Example | What it does |
 |---|---|
-| `/ctotools:new-project Coffee subscription API` | Asks whether to create a Vercel project, then sets everything up. |
-| `/ctotools:new-project Coffee subscription API vercel` | Creates the GitHub repo and a connected Vercel project, without asking. |
+| `/ctotools:new-project Coffee subscription API` | Creates the GitHub repo and a connected Vercel project. |
 | `/ctotools:new-project Coffee subscription API no-vercel` | GitHub only. |
 
 ### What it does
