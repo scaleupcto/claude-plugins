@@ -58,7 +58,7 @@ branch names, Conventional Commits, a PR for every change, and how to merge.
 Leave comments on a Vercel preview with the Vercel Toolbar, and Claude Code makes the
 changes, pushes them and replies on each thread.
 
-[Watch the demo on YouTube](https://youtu.be/KtjJzvCc1UY)
+[Watch the demo on YouTube](https://youtu.be/xay-tSqlSrI)
 
 ### Requirements
 
