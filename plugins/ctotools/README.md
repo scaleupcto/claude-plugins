@@ -21,6 +21,8 @@ the way we work: a private GitHub repo with an empty `main`, a first branch in a
 a README.md and a CLAUDE.md with the working conventions, and a pull request. It also
 creates a matching Vercel project and connects it to the repo, unless you pass `no-vercel`.
 
+[Watch the demo on YouTube](https://youtu.be/jFrqu8L9sh4)
+
 ### Requirements
 
 - The [GitHub CLI](https://cli.github.com), logged in (`gh auth login`).
