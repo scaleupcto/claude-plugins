@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ctotools · Claude Code skills from ScaleUpCTO</title>
-  <meta name="description" content="ctotools is a Claude Code plugin from ScaleUpCTO. new-project takes an empty folder to a GitHub repo, an optional Vercel project and a first PR. vercel-feedback turns Vercel Toolbar comments into commits, pushes and thread replies.">
+  <meta name="description" content="ctotools is a Claude Code plugin from ScaleUpCTO. new-project takes an empty folder to a GitHub repo, an optional Vercel project, optional OpenSpec and a first PR. vercel-feedback turns Vercel Toolbar comments into commits, pushes and thread replies.">
   <link rel="canonical" href="https://tools.scaleupcto.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tools.scaleupcto.com/">
@@ -65,7 +65,7 @@
           <span class="tile__icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10v6"/><path d="M9 13h6"/><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></span>
           <span class="tile__body">
             <span class="tile__name">new-project <span class="tile__tag">New</span></span>
-            <span class="tile__desc">An empty folder to a GitHub repo, an optional Vercel project and a first PR.</span>
+            <span class="tile__desc">An empty folder to a GitHub repo, an optional Vercel project, optional OpenSpec and a first PR.</span>
           </span>
           <svg class="icon tile__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
         </a>
@@ -87,7 +87,7 @@
           <div class="feature__copy">
             <p class="eyebrow">Skill · new-project</p>
             <h2>Empty folder to first PR. <strong>One command.</strong></h2>
-            <p class="lead">Describe the project and Claude sets it up the way you work: a private GitHub repo, a first branch in a worktree, a README.md and a CLAUDE.md with your conventions, a Vercel project, and a pull request.</p>
+            <p class="lead">Describe the project and Claude sets it up the way you work: a private GitHub repo, a first branch in a worktree, a README.md and a CLAUDE.md with your conventions, a Vercel project, OpenSpec if you want spec-driven development, and a pull request.</p>
             <code class="chip chip--start">/ctotools:new-project</code>
           </div>
           <figure class="feature__video">
@@ -112,7 +112,7 @@
           <li class="card">
             <span class="num num--fill">3</span>
             <h3>The first PR sets the rules</h3>
-            <p>From a worktree, it writes README.md, CLAUDE.md and .gitignore and opens a PR. CLAUDE.md tells Claude how to work in the project from then on.</p>
+            <p>From a worktree, it writes README.md, CLAUDE.md and .gitignore, sets up OpenSpec if you asked for it, and opens a PR. CLAUDE.md tells Claude how to work in the project from then on.</p>
           </li>
         </ol>
 
@@ -127,14 +127,16 @@
           <div class="skill__body">
             <div class="skill__usage">
               <p class="label">Usage</p>
-              <div class="code code--light"><pre><code>/ctotools:new-project &lt;description&gt; [no-vercel]</code></pre></div>
-              <p class="hint">The description is required. Add <code>no-vercel</code> at the end to skip Vercel.</p>
+              <div class="code code--light"><pre><code>/ctotools:new-project &lt;description&gt; [no-vercel] [openspec|no-openspec]</code></pre></div>
+              <p class="hint">The description is required. Options go at the end, in any order. Without <code>openspec</code> or <code>no-openspec</code>, it asks whether you want OpenSpec.</p>
               <div class="table">
                 <table>
                   <thead><tr><th scope="col">Option</th><th scope="col">What it does</th></tr></thead>
                   <tbody>
                     <tr><td><em>none</em></td><td>Also creates a Vercel project in the team that matches the GitHub org, links it and connects it to the repo.</td></tr>
                     <tr><td><code>no-vercel</code></td><td>GitHub only. The report says how to add Vercel later.</td></tr>
+                    <tr><td><code>openspec</code></td><td>Initialises <a href="https://github.com/Fission-AI/OpenSpec">OpenSpec</a> for Claude Code: an <code>openspec/</code> folder for specs and changes, the <code>/opsx:*</code> commands, and a CLAUDE.md section on working spec-first.</td></tr>
+                    <tr><td><code>no-openspec</code></td><td>Skips OpenSpec without asking.</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -150,7 +152,7 @@
                   </tbody>
                 </table>
               </div>
-              <p class="hint">For example <code>/ctotools:new-project Subscription billing API for Larkspur Coffee</code>, or add <code>no-vercel</code> for GitHub only.</p>
+              <p class="hint">For example <code>/ctotools:new-project Subscription billing API for Larkspur Coffee</code>, or add <code>no-vercel</code> for GitHub only and <code>openspec</code> for spec-driven development.</p>
             </div>
             <div class="skill__needs">
               <p class="label">You'll need</p>
@@ -158,6 +160,7 @@
                 <li>The GitHub CLI, logged in: <code>gh auth login</code></li>
                 <li>An empty folder. If its parent folder is named after the GitHub org, it picks the org for you</li>
                 <li>Unless you pass <code>no-vercel</code>, the Vercel CLI, logged in: <code>npm i -g vercel@latest</code></li>
+                <li>For OpenSpec, the OpenSpec CLI: <code>npm i -g @fission-ai/openspec@latest</code></li>
                 <li>For Vercel, the Vercel GitHub app with access to the new repo. If it can't see it, the skill gives you the link to grant access</li>
               </ul>
             </div>

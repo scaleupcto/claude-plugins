@@ -27,7 +27,7 @@ CTO tools for Claude Code. See the [ctotools README](plugins/ctotools/README.md)
 
 | Skill | Command | What it does |
 |---|---|---|
-| new-project | `/ctotools:new-project` | Bootstraps a new project from an empty folder: a private GitHub repo, an optional Vercel project, and a first PR with a README.md and a CLAUDE.md that set out how you work. |
+| new-project | `/ctotools:new-project` | Bootstraps a new project from an empty folder: a private GitHub repo, an optional Vercel project, optional OpenSpec, and a first PR with a README.md and a CLAUDE.md that set out how you work. |
 | vercel-feedback | `/ctotools:vercel-feedback` | Turns Vercel Toolbar comments on a PR's preview into commits, pushes and thread replies. It can watch for new comments and resolve the threads it has addressed. |
 
 ## Licence
