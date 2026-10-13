@@ -1,7 +1,7 @@
 ---
 name: new-project
-description: Bootstrap a new project in the current empty directory. Creates a private GitHub repo in the right org, a matching Vercel project connected to it (skip it with no-vercel), and a first PR from a worktree with a README.md and a CLAUDE.md that set out how we work. Use when the user runs /ctotools:new-project or asks to set up, initialise or bootstrap a new project or repo.
-argument-hint: "<description of the project> [no-vercel]"
+description: Bootstrap a new project in the current empty directory. Creates a private GitHub repo in the right org, a matching Vercel project connected to it (skip it with no-vercel), and a first PR from a worktree with a README.md and a CLAUDE.md that set out how we work. Optionally initialises OpenSpec for spec-driven development (pass openspec, or no-openspec to skip the question). Use when the user runs /ctotools:new-project or asks to set up, initialise or bootstrap a new project or repo.
+argument-hint: "<description of the project> [no-vercel] [openspec|no-openspec]"
 ---
 
 # New project
@@ -9,13 +9,18 @@ argument-hint: "<description of the project> [no-vercel]"
 Bootstrap a new project in the current directory. `$ARGUMENTS` is the project
 description. If it's empty, ask the user what the project does before you start.
 
-## Vercel is optional
+## Options
 
-By default the skill also creates a Vercel project. If the last word of `$ARGUMENTS` is
-`no-vercel`, skip Vercel, and leave that word out of the description. A description that
-merely mentions Vercel ("a dashboard for our Vercel usage") doesn't count.
+Options are words at the end of `$ARGUMENTS`, in any order. Strip them off and use what's
+left as the description. A description that merely mentions Vercel or OpenSpec ("a
+dashboard for our Vercel usage") doesn't count.
 
-Everything below marked **(Vercel)** applies only when you're creating the Vercel project.
+- `no-vercel`: skip Vercel. By default the skill also creates a Vercel project.
+  Everything below marked **(Vercel)** applies only when you're creating it.
+- `openspec`: initialise [OpenSpec](https://github.com/Fission-AI/OpenSpec) for
+  spec-driven development. `no-openspec`: don't. With neither, ask the user whether they
+  want OpenSpec before the preflight, so the preflight can check for it. Everything below
+  marked **(OpenSpec)** applies only when they want it.
 
 ## 0. Preflight
 
@@ -28,6 +33,8 @@ and how to fix it. Run the checks together and report every failure at once.
 - **(Vercel) Vercel CLI**: `vercel whoami` must show a logged-in user. If `vercel` is
   missing, ask the user to run `npm i -g vercel@latest`. If it isn't logged in, ask them to
   run `vercel login`. If they'd rather not, offer to carry on without Vercel.
+- **(OpenSpec) OpenSpec CLI**: `openspec --version` must work. If it's missing, ask the
+  user to run `npm i -g @fission-ai/openspec@latest`, or offer to carry on without OpenSpec.
 
 ## 1. Work out the names
 
@@ -102,19 +109,36 @@ username:
   5. Leave the user on a freshly pulled `main` in the main checkout:
      `git checkout main && git pull --prune`
 
+**(OpenSpec) OpenSpec**: in the worktree, run
+
+```bash
+openspec init --tools claude .
+touch openspec/specs/.gitkeep openspec/changes/archive/.gitkeep
+```
+
+It creates `openspec/` (with `specs/` and `changes/`, empty until the first change, hence
+the `.gitkeep` files) and the OpenSpec skills and `/opsx:*` commands under `.claude/`.
+Add an "OpenSpec" section to CLAUDE.md: the project uses spec-driven development with
+OpenSpec; specs live in `openspec/specs/` and proposed changes in `openspec/changes/`;
+start a non-trivial change with `/opsx:new` (or `/opsx:ff` to draft every artifact at
+once), implement it with `/opsx:apply`, and archive it with `/opsx:archive` once it's
+merged, in the same worktree and PR as the code. Mention OpenSpec in README.md too.
+
 **.gitignore**: at least `.claude/worktrees/`, `.env*` (with `!.env.example`),
 `node_modules/` and `.DS_Store`, plus `.vercel` with Vercel.
 
 ## 6. Commit, push and raise the PR
 
 ```bash
-git add README.md CLAUDE.md .gitignore
+git add README.md CLAUDE.md .gitignore   # (OpenSpec) plus openspec/ and .claude/
 git commit -m "docs: add README and CLAUDE.md with working conventions"
 git push -u origin <username>/initial-docs
 gh pr create --base main --title "docs: add README and CLAUDE.md with working conventions" --body "..."
 ```
 
-Follow any commit and PR attribution rules in effect. With Vercel, make sure the
+With OpenSpec, use `chore: set up OpenSpec, README and CLAUDE.md` as the commit message
+and PR title, and make sure `.claude/worktrees/` isn't staged. Follow any commit and PR
+attribution rules in effect. With Vercel, make sure the
 `vercel link` output (`.vercel/`, `.env.local`) isn't committed.
 
 ## 7. Report
@@ -122,4 +146,5 @@ Follow any commit and PR attribution rules in effect. With Vercel, make sure the
 Give the user the GitHub repo URL and the PR URL, and with Vercel, the Vercel project. Say
 plainly about anything that needs them, such as granting the Vercel GitHub app access.
 Without Vercel, say how to add it later: run step 4's commands from the main checkout,
-then add the project to README.md and CLAUDE.md.
+then add the project to README.md and CLAUDE.md. Without OpenSpec, say they can add it
+later with `openspec init --tools claude` in a worktree.

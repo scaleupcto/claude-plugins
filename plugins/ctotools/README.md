@@ -11,7 +11,7 @@ CTO tools for Claude Code, from [ScaleUpCTO](https://scaleupcto.com).
 
 | Skill | What it does |
 |---|---|
-| [new-project](#new-project) | Bootstraps a new project from an empty folder: GitHub repo, optional Vercel project, first PR. |
+| [new-project](#new-project) | Bootstraps a new project from an empty folder: GitHub repo, optional Vercel project, optional OpenSpec, first PR. |
 | [vercel-feedback](#vercel-feedback) | Turns Vercel Toolbar comments on a PR's preview into commits, pushes and thread replies. |
 
 ## new-project
@@ -19,7 +19,9 @@ CTO tools for Claude Code, from [ScaleUpCTO](https://scaleupcto.com).
 Run it in an empty folder with a one-line description, and Claude Code sets the project up
 the way we work: a private GitHub repo with an empty `main`, a first branch in a worktree,
 a README.md and a CLAUDE.md with the working conventions, and a pull request. It also
-creates a matching Vercel project and connects it to the repo, unless you pass `no-vercel`.
+creates a matching Vercel project and connects it to the repo, unless you pass `no-vercel`,
+and can set the project up for spec-driven development with
+[OpenSpec](https://github.com/Fission-AI/OpenSpec).
 
 [Watch the demo on YouTube](https://youtu.be/jFrqu8L9sh4)
 
@@ -28,17 +30,24 @@ creates a matching Vercel project and connects it to the repo, unless you pass `
 - The [GitHub CLI](https://cli.github.com), logged in (`gh auth login`).
 - Unless you pass `no-vercel`, the [Vercel CLI](https://vercel.com/docs/cli) (`npm i -g vercel@latest`),
   logged in with `vercel login`.
+- For OpenSpec, the [OpenSpec CLI](https://github.com/Fission-AI/OpenSpec)
+  (`npm i -g @fission-ai/openspec@latest`).
 
 ### Usage
 
 ```
-/ctotools:new-project <description> [no-vercel]
+/ctotools:new-project <description> [no-vercel] [openspec|no-openspec]
 ```
+
+Options go at the end, in any order. Without `openspec` or `no-openspec`, the skill asks
+whether you want OpenSpec.
 
 | Example | What it does |
 |---|---|
 | `/ctotools:new-project Coffee subscription API` | Creates the GitHub repo and a connected Vercel project. |
 | `/ctotools:new-project Coffee subscription API no-vercel` | GitHub only. |
+| `/ctotools:new-project Coffee subscription API openspec` | GitHub, Vercel and OpenSpec, without asking. |
+| `/ctotools:new-project Coffee subscription API no-vercel no-openspec` | GitHub only, without asking about OpenSpec. |
 
 ### What it does
 
@@ -48,10 +57,14 @@ creates a matching Vercel project and connects it to the repo, unless you pass `
   `<your GitHub username>/initial-docs`, in a worktree under `.claude/worktrees/`.
 - With Vercel, creates the project, links it and connects it to the repo. If the Vercel
   GitHub app can't see the new repo, it gives you the link to grant access.
+- With OpenSpec, runs `openspec init --tools claude`, which adds `openspec/` and the
+  OpenSpec skills and `/opsx:*` commands under `.claude/`.
 - Writes README.md, CLAUDE.md and .gitignore, then raises the first PR.
 
 The CLAUDE.md it writes tells Claude how to work in the project from then on: worktrees,
-branch names, Conventional Commits, a PR for every change, and how to merge.
+branch names, Conventional Commits, a PR for every change, and how to merge. With
+OpenSpec, it also says to start non-trivial changes as an OpenSpec change (`/opsx:new`)
+and archive it in the same PR.
 
 ## vercel-feedback
 
